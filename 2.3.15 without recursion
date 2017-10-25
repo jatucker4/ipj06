@@ -1,0 +1,18 @@
+//This one was done for fun//
+//without recursion//
+import java.lang.Integer;
+import java.util.Scanner;
+public class IntegerToBinary {
+
+    public static String converter(int a){
+        return Integer.toBinaryString(a);
+    }
+
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        System.out.print("Enter an integer to convert to binary");
+        int b = inp.nextInt();
+        String c = converter(b);
+        System.out.println("The integer in binary is: "+c);
+    }
+}
