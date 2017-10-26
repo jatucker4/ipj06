@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Permutations {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        System.out.println("Enter an integer that represents the number of letters to permute:");
+        int a = inp.nextInt();
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String partial = alphabet.substring(0, a);
+        permuteSetup(partial);
+
+    }
+    public static void permuteSetup(String tail) {
+        //initial method to create conditions for permute
+        permute("", tail);
+    }
+    private static void permute(String head, String tail) {
+        int b = tail.length();
+        //termination condition
+        if (b == 0){
+            System.out.println(head);
+        }
+        //recursion
+        else {
+            for (int i = 0; i < b; i++)
+                permute(head+tail.charAt(i), tail.substring(0,i)+tail.substring(i+1,b));
+        }
+    }
+}
