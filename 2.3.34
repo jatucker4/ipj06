@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class LongestPalindromicSubsequence {
+    public static void main(String[] args) {
+       Scanner inp = new Scanner(System.in);
+       System.out.println("Enter a string to find the longest palindromic subsequence:");
+       String b = inp.next();
+       System.out.println(longestPalindrome(b));
+    }
+//return the longest palindrome in the string
+    public static String longestPalindrome(String s) {
+        String c = "";
+        //scan forward on the string
+        for(int i = 0; i < s.length(); i++){
+            //move backwards on the string
+            for(int j = s.length()-1; j >= 0 && j != i; j--){
+                //check for a palindrome and if it is return it
+                if(isPalindrome(s.substring(i,j+1))){
+                        c = s.substring(i, j+1);
+                        return c;
+                    }
+                }
+            }
+        return c;
+    }
+//check if it's a palindrome
+    public static boolean isPalindrome(String s){
+        int end = s.length()-1;
+        for(int i=0; i<s.length()/2; i++){
+            if(s.charAt(i)!=s.charAt(end)){
+                return false;
+            }
+            end--;
+        }
+        return true;
+    }
+}
