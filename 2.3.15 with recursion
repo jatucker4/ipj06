@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class IntegerToBinary{
+    public static void converter(int n) {
+    //Termination statement
+        if (n == 0){
+            return;
+        }
+    //Recursion
+        else {
+            converter(n / 2);
+            System.out.print(n % 2);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        System.out.println("Enter an integer to convert to binary:");
+        int a = inp.nextInt();
+        converter(a);
+        System.out.println();
+    }
+}
